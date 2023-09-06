@@ -59,4 +59,18 @@
         });
     </script>
 </body>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const toasterButton = document.getElementById('toaster-button');
+    const toasterContainer = document.getElementById('toaster-container');
+
+    console.log("Event listener set.");
+
+    toasterButton.addEventListener('click', function() {
+        console.log("Button clicked.");
+        toasterContainer.classList.toggle('show');
+        console.log("Toggle class: ", toasterContainer.classList.contains('show'));
+    });
+});
+
 </html>
