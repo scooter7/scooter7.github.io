@@ -2,68 +2,88 @@
 <html>
 <head>
   <title>AI Chat Widget Example for Higher Education</title>
-  <style>
-    /* Toaster Container */
-    #toaster-container {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 540px;
-      height: 500px;
-      z-index: 9999;
-      transform: translateX(100%);
-      transition: transform 0.5s ease-in-out;
-    }
-    #toaster-container.show {
-      transform: translateX(0);
-    }
-    /* Toaster Button */
-    #toaster-button {
-      position: fixed;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%) translateX(100%);
-      z-index: 10000;
-      cursor: pointer;
-      transition: transform 0.5s ease-in-out;
-    }
-    #toaster-button.show {
-      transform: translateY(-50%) translateX(0);
-    }
-  </style>
 </head>
 <body>
   <h1>AI Chat Widget Example for Higher Education</h1>
-
-  <!-- Toaster Button -->
-  <div id="toaster-button">
-    <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="200px" />
-  </div>
-
-  <!-- Toaster Container -->
-  <div id="toaster-container">
-    <script defer="" src="https://carnegie-chatbot.web.app/embed-min.js" url="https://duckduckgopy-ojkl7vsqdb8.streamlit.app/" color="&#13;#26c2f0" icon="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" iconwidth="200px" width="540px" height="500px" hideIcon="true" idletimer="5000" infourl="https://www.holyfamily.edu/admissions-aid/request-information" visiturl="https://www.holyfamily.edu/admissions-aid/visiting-holy-family" applyurl="https://www.holyfamily.edu/applying-holy-family-university"></script>
-  </div>
-
   <script>
-    // JavaScript to toggle the toaster
-    const toasterButton = document.getElementById("toaster-button");
-    const toasterContainer = document.getElementById("toaster-container");
+    (function() {
+      // Insert CSS into the DOM
+      var css = `
+        #toaster-container {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          width: 540px;
+          height: 500px;
+          z-index: 9999;
+          transform: translateX(100%);
+          transition: transform 0.5s ease-in-out;
+        }
+        #toaster-container.show {
+          transform: translateX(0);
+        }
+        #toaster-button {
+          position: fixed;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%) translateX(100%);
+          z-index: 10000;
+          cursor: pointer;
+          transition: transform 0.5s ease-in-out;
+        }
+        #toaster-button.show {
+          transform: translateY(-50%) translateX(0);
+        }
+      `;
+      var style = document.createElement('style');
+      style.type = 'text/css';
+      style.appendChild(document.createTextNode(css));
+      document.head.appendChild(style);
 
-    // Initialize toaster button to show
-    setTimeout(() => {
-      toasterButton.classList.add("show");
-    }, 500);
+      // Insert HTML into the DOM
+      var toasterButtonHTML = '<div id="toaster-button"><img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="200px" /></div>';
+      var toasterContainer = document.createElement('div');
+      toasterContainer.id = 'toaster-container';
 
-    toasterButton.addEventListener("click", function() {
-      if (toasterContainer.classList.contains("show")) {
-        toasterContainer.classList.remove("show");
-        toasterButton.classList.remove("show");
-      } else {
-        toasterContainer.classList.add("show");
-        toasterButton.classList.add("show");
-      }
-    });
+      var chatScript = document.createElement('script');
+      chatScript.setAttribute('defer', '');
+      chatScript.src = 'https://carnegie-chatbot.web.app/embed-min.js';
+      chatScript.setAttribute('url', 'https://duckduckgopy-ojkl7vsqdb8.streamlit.app/');
+      chatScript.setAttribute('color', '&#13;#26c2f0');
+      chatScript.setAttribute('icon', 'https://scooter7.github.io/images/holyfamily/AskBlue_Button.png');
+      chatScript.setAttribute('iconwidth', '200px');
+      chatScript.setAttribute('width', '540px');
+      chatScript.setAttribute('height', '500px');
+      chatScript.setAttribute('hideIcon', 'true');
+      chatScript.setAttribute('idletimer', '5000');
+      chatScript.setAttribute('infourl', 'https://www.holyfamily.edu/admissions-aid/request-information');
+      chatScript.setAttribute('visiturl', 'https://www.holyfamily.edu/admissions-aid/visiting-holy-family');
+      chatScript.setAttribute('applyurl', 'https://www.holyfamily.edu/applying-holy-family-university');
+
+      toasterContainer.appendChild(chatScript);
+
+      document.body.insertAdjacentHTML('beforeend', toasterButtonHTML);
+      document.body.appendChild(toasterContainer);
+
+      // Add JavaScript to toggle the toaster
+      setTimeout(function() {
+        var toasterButton = document.getElementById('toaster-button');
+        var toasterContainer = document.getElementById('toaster-container');
+
+        // Initialize toaster button to show
+        toasterButton.classList.add('show');
+
+        toasterButton.addEventListener('click', function() {
+          if (toasterContainer.classList.contains('show')) {
+            toasterContainer.classList.remove('show');
+            toasterButton.classList.remove('show');
+          } else {
+            toasterContainer.classList.add('show');
+            toasterButton.classList.add('show');
+          }
+        });
+      }, 500);
+    })();
   </script>
 </body>
 </html>
