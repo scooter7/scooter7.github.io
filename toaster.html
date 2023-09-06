@@ -5,7 +5,7 @@
   <script>
     (function() {
       // Insert CSS into the DOM
-      var css = `
+      const css = `
         #toaster-container {
           position: fixed;
           bottom: 0;
@@ -23,22 +23,22 @@
           position: fixed;
           right: 0;
           top: 50%;
-          z-index: 10000;
+          z-index: 10001; /* Higher z-index */
           cursor: pointer;
           transform: translateY(-50%);
         }
       `;
-      var style = document.createElement('style');
+      const style = document.createElement('style');
       style.type = 'text/css';
       style.appendChild(document.createTextNode(css));
       document.head.appendChild(style);
 
       // Insert HTML into the DOM
-      var toasterButtonHTML = '<div id="toaster-button"><img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="200px" /></div>';
-      var toasterContainer = document.createElement('div');
+      const toasterButtonHTML = '<div id="toaster-button"><img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="90px" /></div>';
+      const toasterContainer = document.createElement('div');
       toasterContainer.id = 'toaster-container';
 
-      var chatScript = document.createElement('script');
+      const chatScript = document.createElement('script');
       chatScript.setAttribute('defer', '');
       chatScript.src = 'https://carnegie-chatbot.web.app/embed-min.js';
       chatScript.setAttribute('url', 'https://duckduckgopy-ojkl7vsqdb8.streamlit.app/');
@@ -52,6 +52,7 @@
       chatScript.setAttribute('infourl', 'https://www.holyfamily.edu/admissions-aid/request-information');
       chatScript.setAttribute('visiturl', 'https://www.holyfamily.edu/admissions-aid/visiting-holy-family');
       chatScript.setAttribute('applyurl', 'https://www.holyfamily.edu/applying-holy-family-university');
+      chatScript.setAttribute('style', 'visibility:hidden;'); // Hide the chat widget
 
       toasterContainer.appendChild(chatScript);
 
@@ -59,14 +60,14 @@
       document.body.appendChild(toasterContainer);
 
       // Add JavaScript to toggle the toaster
-      setTimeout(function() {
-        var toasterButton = document.getElementById('toaster-button');
-        var toasterContainer = document.getElementById('toaster-container');
-
-        toasterButton.addEventListener('click', function() {
+      setTimeout(() => {
+        const toasterButton = document.getElementById('toaster-button');
+        const toasterContainer = document.getElementById('toaster-container');
+        
+        toasterButton.addEventListener('click', () => {
           toasterContainer.classList.toggle('show');
         });
-      }, 1000); // Added a delay to make sure elements are rendered
+      }, 1000); // Delay to ensure all elements are rendered
     })();
   </script>
 </head>
