@@ -16,7 +16,7 @@
           width: 540px;
           height: 500px;
           z-index: 9999;
-          transform: translateX(100%);
+          transform: translateX(90%); /* Slightly visible */
           transition: transform 0.5s ease-in-out;
         }
         #toaster-container.show {
@@ -26,13 +26,9 @@
           position: fixed;
           right: 0;
           top: 50%;
-          transform: translateY(-50%) translateX(100%);
+          transform: translateY(-50%);
           z-index: 10000;
           cursor: pointer;
-          transition: transform 0.5s ease-in-out;
-        }
-        #toaster-button.show {
-          transform: translateY(-50%) translateX(0);
         }
       `;
       var style = document.createElement('style');
@@ -66,23 +62,19 @@
       document.body.appendChild(toasterContainer);
 
       // Add JavaScript to toggle the toaster
-      setTimeout(function() {
-        var toasterButton = document.getElementById('toaster-button');
-        var toasterContainer = document.getElementById('toaster-container');
+      var toasterButton = document.getElementById('toaster-button');
+      var toasterContainer = document.getElementById('toaster-container');
 
-        // Initialize toaster button to show
-        toasterButton.classList.add('show');
+      // Initialize toaster button to show
+      toasterButton.classList.add('show');
 
-        toasterButton.addEventListener('click', function() {
-          if (toasterContainer.classList.contains('show')) {
-            toasterContainer.classList.remove('show');
-            toasterButton.classList.remove('show');
-          } else {
-            toasterContainer.classList.add('show');
-            toasterButton.classList.add('show');
-          }
-        });
-      }, 500);
+      toasterButton.addEventListener('click', function() {
+        if (toasterContainer.classList.contains('show')) {
+          toasterContainer.classList.remove('show');
+        } else {
+          toasterContainer.classList.add('show');
+        }
+      });
     })();
   </script>
 </body>
