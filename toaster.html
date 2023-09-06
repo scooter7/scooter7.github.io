@@ -2,9 +2,6 @@
 <html>
 <head>
   <title>AI Chat Widget Example for Higher Education</title>
-</head>
-<body>
-  <h1>AI Chat Widget Example for Higher Education</h1>
   <script>
     (function() {
       // Insert CSS into the DOM
@@ -16,7 +13,7 @@
           width: 540px;
           height: 500px;
           z-index: 9999;
-          transform: translateX(90%); /* Slightly visible */
+          transform: translateX(450px);
           transition: transform 0.5s ease-in-out;
         }
         #toaster-container.show {
@@ -26,9 +23,9 @@
           position: fixed;
           right: 0;
           top: 50%;
-          transform: translateY(-50%);
           z-index: 10000;
           cursor: pointer;
+          transform: translateY(-50%);
         }
       `;
       var style = document.createElement('style');
@@ -62,20 +59,18 @@
       document.body.appendChild(toasterContainer);
 
       // Add JavaScript to toggle the toaster
-      var toasterButton = document.getElementById('toaster-button');
-      var toasterContainer = document.getElementById('toaster-container');
+      setTimeout(function() {
+        var toasterButton = document.getElementById('toaster-button');
+        var toasterContainer = document.getElementById('toaster-container');
 
-      // Initialize toaster button to show
-      toasterButton.classList.add('show');
-
-      toasterButton.addEventListener('click', function() {
-        if (toasterContainer.classList.contains('show')) {
-          toasterContainer.classList.remove('show');
-        } else {
-          toasterContainer.classList.add('show');
-        }
-      });
+        toasterButton.addEventListener('click', function() {
+          toasterContainer.classList.toggle('show');
+        });
+      }, 1000); // Added a delay to make sure elements are rendered
     })();
   </script>
+</head>
+<body>
+  <h1>AI Chat Widget Example for Higher Education</h1>
 </body>
 </html>
