@@ -2,42 +2,54 @@
 <html>
 <head>
   <title>AI Chat Widget Example for Higher Education</title>
+  <style>
+    #toaster-container {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 540px;
+      height: 500px;
+      z-index: 9999;
+      transform: translateX(90%);
+      transition: transform 0.5s ease-in-out;
+    }
+    #toaster-container.show {
+      transform: translateX(0);
+    }
+    #toaster-button {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI Chat Widget Example for Higher Education</h1>
+  
+  <!-- Toaster Button -->
+  <div id="toaster-button">
+    <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="200px" />
+  </div>
+  
+  <!-- Toaster Container -->
+  <div id="toaster-container">
+    <!-- Your chat widget will be loaded here -->
+  </div>
+
   <script>
-    (function() {
-      // Insert CSS into the DOM
-      const css = `
-        #toaster-container {
-          position: fixed;
-          bottom: 0;
-          right: 0;
-          width: 540px;
-          height: 500px;
-          z-index: 9999;
-          transform: translateX(450px);
-          transition: transform 0.5s ease-in-out;
-        }
-        #toaster-container.show {
-          transform: translateX(0);
-        }
-        #toaster-button {
-          position: fixed;
-          right: 0;
-          top: 50%;
-          z-index: 10001; /* Higher z-index */
-          cursor: pointer;
-          transform: translateY(-50%);
-        }
-      `;
-      const style = document.createElement('style');
-      style.type = 'text/css';
-      style.appendChild(document.createTextNode(css));
-      document.head.appendChild(style);
+    // Add JavaScript to toggle the toaster
+    document.addEventListener("DOMContentLoaded", function() {
+      const toasterButton = document.getElementById('toaster-button');
+      const toasterContainer = document.getElementById('toaster-container');
 
-      // Insert HTML into the DOM
-      const toasterButtonHTML = '<div id="toaster-button"><img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="90px" /></div>';
-      const toasterContainer = document.createElement('div');
-      toasterContainer.id = 'toaster-container';
+      toasterButton.addEventListener('click', function() {
+        toasterContainer.classList.toggle('show');
+      });
 
+      // Load the chat widget inside the toaster container
       const chatScript = document.createElement('script');
       chatScript.setAttribute('defer', '');
       chatScript.src = 'https://carnegie-chatbot.web.app/embed-min.js';
@@ -52,26 +64,8 @@
       chatScript.setAttribute('infourl', 'https://www.holyfamily.edu/admissions-aid/request-information');
       chatScript.setAttribute('visiturl', 'https://www.holyfamily.edu/admissions-aid/visiting-holy-family');
       chatScript.setAttribute('applyurl', 'https://www.holyfamily.edu/applying-holy-family-university');
-      chatScript.setAttribute('style', 'visibility:hidden;'); // Hide the chat widget
-
       toasterContainer.appendChild(chatScript);
-
-      document.body.insertAdjacentHTML('beforeend', toasterButtonHTML);
-      document.body.appendChild(toasterContainer);
-
-      // Add JavaScript to toggle the toaster
-      setTimeout(() => {
-        const toasterButton = document.getElementById('toaster-button');
-        const toasterContainer = document.getElementById('toaster-container');
-        
-        toasterButton.addEventListener('click', () => {
-          toasterContainer.classList.toggle('show');
-        });
-      }, 1000); // Delay to ensure all elements are rendered
-    })();
+    });
   </script>
-</head>
-<body>
-  <h1>AI Chat Widget Example for Higher Education</h1>
 </body>
 </html>
