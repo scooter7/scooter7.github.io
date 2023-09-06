@@ -1,76 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AI Chat Widget Example for Higher Education</title>
+    <title>Sliding Toaster Example</title>
     <style>
+        /* Toaster container */
+        #toaster-container {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) translateX(100%);
+            width: 500px;
+            height: 400px;
+            z-index: 1000;
+            transition: transform 0.5s ease;
+        }
+        #toaster-container.show {
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Toaster button */
         #toaster-button {
             position: fixed;
             right: 0;
             top: 50%;
-            z-index: 10000;
+            transform: translateY(-50%);
             cursor: pointer;
-        }
-        #toaster-container {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 540px;
-            height: 500px;
-            z-index: 9999;
-            transform: translateX(90%);
-            transition: transform 0.5s ease-in-out;
-        }
-        #toaster-container.show {
-            transform: translateX(0);
+            z-index: 1001;
         }
     </style>
 </head>
 <body>
-    <h1>AI Chat Widget Example for Higher Education</h1>
 
+    <!-- Toaster button -->
     <div id="toaster-button">
-        <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="50px" />
+        <img src="https://scooter7.github.io/images/holyfamily/HFU%20BLUE%20HEAD%20SHOTS_L1.png" width="50">
     </div>
 
+    <!-- Toaster container -->
     <div id="toaster-container">
-        <script defer="" src="https://carnegie-chatbot.web.app/embed-min.js" 
-        url="https://duckduckgopy-ojkl7vsqdb8.streamlit.app/" 
-        color="&#13;#26c2f0" 
-        icon="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" 
-        iconwidth="200px" 
-        width="540px" 
-        height="500px" 
-        hideIcon="true" 
-        idletimer="5000" 
-        infourl="https://www.holyfamily.edu/admissions-aid/request-information" 
-        visiturl="https://www.holyfamily.edu/admissions-aid/visiting-holy-family" 
-        applyurl="https://www.holyfamily.edu/applying-holy-family-university">
-        </script>
+        <iframe src="https://duckduckgopy-ojkl7vsqdb8.streamlit.app/" width="100%" height="100%"></iframe>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const toasterButton = document.getElementById('toaster-button');
-            const toasterContainer = document.getElementById('toaster-container');
+        // Function to toggle the toaster
+        function toggleToaster() {
+            const toaster = document.getElementById('toaster-container');
+            toaster.classList.toggle('show');
+        }
 
-            toasterButton.addEventListener('click', function() {
-                toasterContainer.classList.toggle('show');
-            });
-        });
+        // Add click event to the toaster button
+        document.getElementById('toaster-button').addEventListener('click', toggleToaster);
     </script>
+
 </body>
-
-document.addEventListener("DOMContentLoaded", function() {
-    const toasterButton = document.getElementById('toaster-button');
-    const toasterContainer = document.getElementById('toaster-container');
-
-    console.log("Event listener set.");
-
-    toasterButton.addEventListener('click', function() {
-        console.log("Button clicked.");
-        toasterContainer.classList.toggle('show');
-        console.log("Toggle class: ", toasterContainer.classList.contains('show'));
-    });
-});
-
 </html>
