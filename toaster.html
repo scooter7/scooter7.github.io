@@ -2,68 +2,68 @@
 <html>
 <head>
   <title>AI Chat Widget Example for Higher Education</title>
+  <style>
+    /* Toaster Container */
+    #toaster-container {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 540px;
+      height: 500px;
+      z-index: 9999;
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in-out;
+    }
+    #toaster-container.show {
+      transform: translateX(0);
+    }
+    /* Toaster Button */
+    #toaster-button {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) translateX(100%);
+      z-index: 10000;
+      cursor: pointer;
+      transition: transform 0.5s ease-in-out;
+    }
+    #toaster-button.show {
+      transform: translateY(-50%) translateX(0);
+    }
+  </style>
 </head>
 <body>
   <h1>AI Chat Widget Example for Higher Education</h1>
+
+  <!-- Toaster Button -->
+  <div id="toaster-button">
+    <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="200px" />
+  </div>
+
+  <!-- Toaster Container -->
+  <div id="toaster-container">
+    <script defer="" src="https://carnegie-chatbot.web.app/embed-min.js" url="https://duckduckgopy-ojkl7vsqdb8.streamlit.app/" color="&#13;#26c2f0" icon="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" iconwidth="200px" width="540px" height="500px" hideIcon="true" idletimer="5000" infourl="https://www.holyfamily.edu/admissions-aid/request-information" visiturl="https://www.holyfamily.edu/admissions-aid/visiting-holy-family" applyurl="https://www.holyfamily.edu/applying-holy-family-university"></script>
+  </div>
+
   <script>
-    (function() {
-      // Insert CSS into the DOM
-      const css = `
-        #toaster-container {
-          position: fixed;
-          bottom: 0;
-          right: 0;
-          width: 540px;
-          height: 500px;
-          z-index: 9999;
-          transform: translateX(100%);
-          transition: transform 0.5s ease-in-out;
-        }
-        #toaster-container.show {
-          transform: translateX(0);
-        }
-        #toaster-button {
-          position: fixed;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%) translateX(100%);
-          z-index: 10000;
-          cursor: pointer;
-          transition: transform 0.5s ease-in-out;
-        }
-        #toaster-button.show {
-          transform: translateY(-50%) translateX(0);
-        }
-      `;
-      const style = document.createElement('style');
-      style.type = 'text/css';
-      style.appendChild(document.createTextNode(css));
-      document.head.appendChild(style);
+    // JavaScript to toggle the toaster
+    const toasterButton = document.getElementById("toaster-button");
+    const toasterContainer = document.getElementById("toaster-container");
 
-      // Insert HTML into the DOM
-      const toasterButtonHTML = `<div id="toaster-button"><img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" width="200px" /></div>`;
-      const toasterContainerHTML = `<div id="toaster-container"><script defer="" src="https://carnegie-chatbot.web.app/embed-min.js" url="https://duckduckgopy-ojkl7vsqdb8.streamlit.app/" color="&#13;#26c2f0" icon="https://scooter7.github.io/images/holyfamily/AskBlue_Button.png" iconwidth="200px" width="540px" height="500px" hideIcon="true" idletimer="5000" infourl="https://www.holyfamily.edu/admissions-aid/request-information" visiturl="https://www.holyfamily.edu/admissions-aid/visiting-holy-family" applyurl="https://www.holyfamily.edu/applying-holy-family-university"></script></div>`;
-      document.body.insertAdjacentHTML('beforeend', toasterButtonHTML + toasterContainerHTML);
+    // Initialize toaster button to show
+    setTimeout(() => {
+      toasterButton.classList.add("show");
+    }, 500);
 
-      // Add JavaScript to toggle the toaster
-      setTimeout(() => {
-        const toasterButton = document.getElementById('toaster-button');
-        const toasterContainer = document.getElementById('toaster-container');
-
-        // Initialize toaster button to show
-        toasterButton.classList.add('show');
-
-        toasterButton.addEventListener('click', function() {
-          if (toasterContainer.classList.contains('show')) {
-            toasterContainer.classList.remove('show');
-            toasterButton.classList.remove('show');
-          } else {
-            toasterContainer.classList.add('show');
-            toasterButton.classList.add('show');
-          }
-        });
-      }, 500);
-    })();
+    toasterButton.addEventListener("click", function() {
+      if (toasterContainer.classList.contains("show")) {
+        toasterContainer.classList.remove("show");
+        toasterButton.classList.remove("show");
+      } else {
+        toasterContainer.classList.add("show");
+        toasterButton.classList.add("show");
+      }
+    });
   </script>
 </body>
 </html>
