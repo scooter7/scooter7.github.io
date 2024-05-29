@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<body style="background-color:powderblue;">
+<head>
+	<title>AI Chat Widget Example for Samford</title>
+</head>
+<body>
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.init({
+        chatflowid: "02ae8ed1-78bc-42b1-8758-11f126a8a76b",
+        apiHost: "https://scooter7-flowise-demo.hf.space",
+        chatflowConfig: {
+            // topK: 2
+        },
+        theme: {
+            button: {
+                backgroundColor: "#3B81F6",
+                right: 20,
+                bottom: 20,
+                size: "medium",
+                iconColor: "white",
+                customIconSrc: "https://www.samford.edu/admission/images/Ask-Sam-Button.svg",
+            },
+            chatWindow: {
+                welcomeMessage: "",
+                backgroundColor: "#ffffff",
+                height: 700,
+                width: 400,
+                fontSize: 16,
+                poweredByTextColor: "#ffffff",
+                botMessage: {
+                    backgroundColor: "#bd1f2d",
+                    textColor: "#ffffff",
+                    showAvatar: true,
+                    avatarSrc: "https://www.samford.edu/admission/images/Ask-Sam-Button.svg",
+                },
+                userMessage: {
+                    backgroundColor: "#3B81F6",
+                    textColor: "#ffffff",
+                    showAvatar: false,
+                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                },
+                textInput: {
+                    placeholder: "Type your question",
+                    backgroundColor: "#ffffff",
+                    textColor: "#303235",
+                    sendButtonColor: "#3B81F6",
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
