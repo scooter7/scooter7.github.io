@@ -14,10 +14,13 @@
         }
         .chatbot-button img {
             display: block;
+            width: auto; /* Ensure the image retains its natural width */
+            height: auto; /* Ensure the image retains its natural height */
         }
     </style>
 </head>
 <body>
+    <div id="chatbot-button-container"></div>
     <script type="module">
         import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
         
@@ -29,15 +32,16 @@
             },
             theme: {
                 button: {
-                    backgroundColor: "transparent",
-                    right: 20,
-                    bottom: 20,
-                    size: "custom", // Use custom to override the default size setting
+                    customIconSrc: "",
                     iconHTML: `
                         <div class="chatbot-button">
                             <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png" alt="Chatbot Button">
                         </div>
-                    `
+                    `,
+                    backgroundColor: "transparent",
+                    right: 20,
+                    bottom: 20,
+                    size: "custom" // Use custom to override the default size setting
                 },
                 chatWindow: {
                     welcomeMessage: "Hi! Please fill out the form below to get started.",
