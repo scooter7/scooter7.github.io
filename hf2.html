@@ -3,66 +3,66 @@
 <head>
     <title>AI Chat Widget Example for Higher Education</title>
     <style>
-        .custom-chatbot-button {
-            background-color: #ffffff;
+        .chatbot-button {
+            position: fixed;
             right: 20px;
             bottom: 20px;
-            position: fixed;
+            background-color: transparent;
             border: none;
             padding: 0;
             cursor: pointer;
         }
-        .custom-chatbot-button img {
-            display: block;
-        }
     </style>
 </head>
 <body>
-<script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    Chatbot.init({
-        chatflowid: "ec909e65-4b28-418c-a40a-a1854a884f2f",
-        apiHost: "https://scooter7-flowise-demo.hf.space",
-        chatflowConfig: {
-            // topK: 2
-        },
-        theme: {
-            button: {
-                custom: true,
-                customButtonHTML: `
-                    <button class="custom-chatbot-button">
-                        <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png" alt="Chatbot Button">
-                    </button>
-                `
+    <button id="chatbot-button" class="chatbot-button">
+        <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png" alt="Chatbot Button">
+    </button>
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+        Chatbot.init({
+            chatflowid: "ec909e65-4b28-418c-a40a-a1854a884f2f",
+            apiHost: "https://scooter7-flowise-demo.hf.space",
+            chatflowConfig: {
+                // topK: 2
             },
-            chatWindow: {
-                welcomeMessage: "Hi! Please fill out the form below to get started.",
-                backgroundColor: "#ffffff",
-                height: 700,
-                width: 400,
-                fontSize: 16,
-                poweredByTextColor: "#ffffff",
-                botMessage: {
-                    backgroundColor: "#062748",
-                    textColor: "#ffffff",
-                    showAvatar: true,
-                    avatarSrc: "https://scooter7.github.io/images/holyfamily/HFU%20BLUE%20HEAD%20SHOTS_L1.png",
+            theme: {
+                button: {
+                    // Remove this section because we are manually creating the button
                 },
-                userMessage: {
-                    backgroundColor: "#009ddc",
-                    textColor: "#ffffff",
-                    showAvatar: false,
-                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
-                },
-                textInput: {
-                    placeholder: "Type your question",
+                chatWindow: {
+                    welcomeMessage: "Hi! Please fill out the form below to get started.",
                     backgroundColor: "#ffffff",
-                    textColor: "#000000",
-                    sendButtonColor: "#000000",
+                    height: 700,
+                    width: 400,
+                    fontSize: 16,
+                    poweredByTextColor: "#ffffff",
+                    botMessage: {
+                        backgroundColor: "#062748",
+                        textColor: "#ffffff",
+                        showAvatar: true,
+                        avatarSrc: "https://scooter7.github.io/images/holyfamily/HFU%20BLUE%20HEAD%20SHOTS_L1.png",
+                    },
+                    userMessage: {
+                        backgroundColor: "#009ddc",
+                        textColor: "#ffffff",
+                        showAvatar: false,
+                        avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                    },
+                    textInput: {
+                        placeholder: "Type your question",
+                        backgroundColor: "#ffffff",
+                        textColor: "#000000",
+                        sendButtonColor: "#000000",
+                    }
                 }
             }
-        }
-    })
-</script>
+        });
+
+        // Add event listener to open the chatbot when the button is clicked
+        document.getElementById('chatbot-button').addEventListener('click', function() {
+            // Code to open or trigger the chatbot
+        });
+    </script>
 </body>
 </html>
