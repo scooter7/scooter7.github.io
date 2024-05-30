@@ -12,12 +12,12 @@
             padding: 0;
             cursor: pointer;
         }
+        .chatbot-button img {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <button id="chatbot-button" class="chatbot-button">
-        <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png" alt="Chatbot Button">
-    </button>
     <script type="module">
         import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
         Chatbot.init({
@@ -28,7 +28,15 @@
             },
             theme: {
                 button: {
-                    // Remove this section because we are manually creating the button
+                    backgroundColor: "#ffffff",
+                    right: 20,
+                    bottom: 20,
+                    size: "custom", // Use custom to override the default size setting
+                    iconHTML: `
+                        <button class="chatbot-button">
+                            <img src="https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png" alt="Chatbot Button">
+                        </button>
+                    `
                 },
                 chatWindow: {
                     welcomeMessage: "Hi! Please fill out the form below to get started.",
@@ -51,17 +59,12 @@
                     },
                     textInput: {
                         placeholder: "Type your question",
-                        backgroundColor: "#009ddc,
-                        textColor: "ffffff",
-                        sendButtonColor: "#ffffff",
+                        backgroundColor: "#ffffff",
+                        textColor: "#000000",
+                        sendButtonColor: "#000000",
                     }
                 }
             }
-        });
-
-        // Add event listener to open the chatbot when the button is clicked
-        document.getElementById('chatbot-button').addEventListener('click', function() {
-            // Code to open or trigger the chatbot
         });
     </script>
 </body>
