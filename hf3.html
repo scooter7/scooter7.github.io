@@ -30,6 +30,10 @@
             cursor: pointer;
             z-index: 9999; /* Ensure it appears above other elements */
         }
+        /* Hide the default chat button */
+        .chatbot-container .chatbot-button {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +51,9 @@
                     // topK: 2
                 },
                 theme: {
+                    button: {
+                        display: 'none' // This is just to ensure it's not displayed
+                    },
                     chatWindow: {
                         welcomeMessage: "Hi! Please fill out the form below to get started.",
                         backgroundColor: "#ffffff",
