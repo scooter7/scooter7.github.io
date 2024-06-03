@@ -18,6 +18,19 @@
         .chatbot-container .chatbot-host-bubble.prose a:active {
             color: #ffffff !important;
         }
+        /* Add custom styles for the button */
+        .chatbot-button-custom {
+            background: url('https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png') no-repeat center center;
+            background-size: contain;
+            width: 100px; /* Adjust the width as per the actual size of the image */
+            height: 100px; /* Adjust the height as per the actual size of the image */
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 9999; /* Ensure it appears above other elements */
+        }
     </style>
 </head>
 <body>
@@ -31,12 +44,9 @@
         },
         theme: {
             button: {
-                backgroundColor: "#ffffff",
-                right: 20,
-                bottom: 20,
-                // size: "large", // Removed this line
-                iconColor: "white",
-                customIconSrc: "https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png",
+                // Use the class instead of the properties here
+                customClass: "chatbot-button-custom",
+                // Removed size and other properties
             },
             chatWindow: {
                 welcomeMessage: "Hi! Please fill out the form below to get started.",
