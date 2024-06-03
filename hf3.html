@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chat Widget Example for Higher Education</title>
+    <style>
+        .chatbot-container .chatbot-host-bubble.prose a {
+            color: #ffffff !important;
+        }
+        .chatbot-container .chatbot-host-bubble.prose a:link {
+            color: #ffffff !important;
+        }
+        .chatbot-container .chatbot-host-bubble.prose a:visited {
+            color: #ffffff !important;
+        }
+        .chatbot-container .chatbot-host-bubble.prose a:hover {
+            color: #ffffff !important;
+        }
+        .chatbot-container .chatbot-host-bubble.prose a:active {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body>
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.init({
+        chatflowid: "ec909e65-4b28-418c-a40a-a1854a884f2f",
+        apiHost: "https://scooter7-flowise-demo.hf.space",
+        chatflowConfig: {
+            // topK: 2
+        },
+        theme: {
+            button: {
+                backgroundColor: "#ffffff",
+                right: 20,
+                bottom: 20,
+                // size: "large", // Removed this line
+                iconColor: "white",
+                customIconSrc: "https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png",
+            },
+            chatWindow: {
+                welcomeMessage: "Hi! Please fill out the form below to get started.",
+                backgroundColor: "#ffffff",
+                height: 700,
+                width: 400,
+                fontSize: 16,
+                poweredByTextColor: "#ffffff",
+                botMessage: {
+                    backgroundColor: "#009ddc",
+                    textColor: "#ffffff",
+                    showAvatar: true,
+                    avatarSrc: "https://scooter7.github.io/images/holyfamily/HFU%20BLUE%20HEAD%20SHOTS_L1.png",
+                },
+                userMessage: {
+                    backgroundColor: "#ffcc15",
+                    textColor: "#000000",
+                    showAvatar: false,
+                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                },
+                textInput: {
+                    placeholder: "Type your question",
+                    backgroundColor: "#06213f",
+                    textColor: "#ffffff",
+                    sendButtonColor: "#ffffff",
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
