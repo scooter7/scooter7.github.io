@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<body style="background-color:powderblue;">
+<head>
+	<title>AI Chat Widget Example for Holy Family</title>
+</head>
+<body>
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.init({
+        chatflowid: "6d96db80-be10-472a-89a2-9a62d27e369e",
+        apiHost: "https://scooter7-flowise-demo.hf.space",
+        chatflowConfig: {
+            // topK: 2
+        },
+        theme: {
+            button: {
+                backgroundColor: "#3B81F6",
+                right: 20,
+                bottom: 20,
+                size: "medium",
+                iconColor: "white",
+                customIconSrc: "https://scooter7.github.io/images/holyfamily/AskBlue_Button2.png",
+            },
+            chatWindow: {
+                welcomeMessage: "Hi, I'm Sam. Please provide your name and email address in the form below to begin.",
+                backgroundColor: "#ffffff",
+                height: 700,
+                width: 400,
+                fontSize: 16,
+                poweredByTextColor: "#ffffff",
+                botMessage: {
+                    backgroundColor: "#3b81f6",
+                    textColor: "#ffffff",
+                    showAvatar: true,
+                    avatarSrc: "https://scooter7.github.io/images/holyfamily/HFU%20BLUE%20HEAD%20SHOTS_L1.png",
+                },
+                userMessage: {
+                    backgroundColor: "##ffcc15",
+                    textColor: "#000000",
+                    showAvatar: false,
+                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                },
+                textInput: {
+                    placeholder: "Type your question",
+                    backgroundColor: "#ffffff",
+                    textColor: "#303235",
+                    sendButtonColor: "#009ddc",
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
