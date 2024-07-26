@@ -6,72 +6,114 @@
 </head>
 <body>
 <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    Chatbot.init({
-        chatflowid: "6d96db80-be10-472a-89a2-9a62d27e369e",
-        apiHost: "https://scooter7-flowise-demo.hf.space",
-        chatflowConfig: {
-            // topK: 2
+  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  Chatbot.init({
+    chatflowid: '91e9c803-5169-4db9-8207-3c0915d71c5f',
+    apiHost: 'http://localhost:3000',
+    chatflowConfig: {
+      // topK: 2
+    },
+    observersConfig: {
+      // (optional) Allows you to execute code in parent based upon signal observations within the chatbot.
+      // The userinput field submitted to bot ("" when reset by bot)
+      observeUserInput: (userInput) => {
+        console.log({ userInput });
+      },
+      // The bot message stack has changed
+      observeMessages: (messages) => {
+        console.log({ messages });
+      },
+      // The bot loading signal changed
+      observeLoading: (loading) => {
+        console.log({ loading });
+      },
+    },
+    theme: {
+      button: {
+        backgroundColor: '#3B81F6',
+        right: 20,
+        bottom: 20,
+        size: 48, // small | medium | large | number
+        dragAndDrop: true,
+        iconColor: 'white',
+        customIconSrc: 'https://scooter7.github.io/images/holyfamily/AskBlue_Button.png',
+      },
+      tooltip: {
+        showTooltip: true,
+        tooltipMessage: 'Hi There 👋!',
+        tooltipBackgroundColor: 'black',
+        tooltipTextColor: 'white',
+        tooltipFontSize: 16,
+      },
+      chatWindow: {
+        showTitle: true,
+        showAgentMessages: true,
+        title: 'Flowise Bot',
+        titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+        welcomeMessage: 'Hello! This is custom welcome message',
+        errorMessage: 'This is a custom error message',
+        backgroundColor: '#ffffff',
+        height: 700,
+        width: 400,
+        fontSize: 16,
+        botMessage: {
+          backgroundColor: '#f7f8ff',
+          textColor: '#303235',
+          showAvatar: true,
+          avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png',
         },
-        theme: {
-            button: {
-                backgroundColor: "#3B81F6",
-                right: 20,
-                bottom: 20,
-                size: "large", // Set button size to large
-                iconColor: "white",
-                customIconSrc: "https://scooter7.github.io/images/holyfamily/AskBlue_Button.png"
-            },
-            chatWindow: {
-                welcomeMessage: "Hello! This is custom welcome message",
-                backgroundColor: "#ffffff",
-                height: 700,
-                width: 400,
-                fontSize: 16,
-                poweredByTextColor: "#303235",
-                botMessage: {
-                    backgroundColor: "#f7f8ff",
-                    textColor: "#303235",
-                    showAvatar: true,
-                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png"
-                },
-                userMessage: {
-                    backgroundColor: "#3B81F6",
-                    textColor: "#ffffff",
-                    showAvatar: true,
-                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png"
-                },
-                textInput: {
-                    placeholder: "Type your question",
-                    backgroundColor: "#ffffff",
-                    textColor: "#303235",
-                    sendButtonColor: "#3B81F6"
-                }
-            }
-        }
-    })
+        userMessage: {
+          backgroundColor: '#3B81F6',
+          textColor: '#ffffff',
+          showAvatar: true,
+          avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png',
+        },
+        textInput: {
+          placeholder: 'Type your question',
+          backgroundColor: '#ffffff',
+          textColor: '#303235',
+          sendButtonColor: '#3B81F6',
+          maxChars: 50,
+          maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
+          autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
+          sendMessageSound: true,
+          // sendSoundLocation: "send_message.mp3", // If this is not used, the default sound effect will be played if sendSoundMessage is true.
+          receiveMessageSound: true,
+          // receiveSoundLocation: "receive_message.mp3", // If this is not used, the default sound effect will be played if receiveSoundMessage is true.
+        },
+        feedback: {
+          color: '#303235',
+        },
+        footer: {
+          textColor: '#303235',
+          text: 'Powered by',
+          company: 'Flowise',
+          companyLink: 'https://flowiseai.com',
+        },
+      },
+    },
+  });
 </script>
 <style>
-    .flowise-chatbot-button {
-        position: relative;
-        width: 60px !important; /* Set desired width */
-        height: 60px !important; /* Set desired height */
-        background-color: #3B81F6 !important;
-        padding: 0 !important;
-        border: none !important;
-        overflow: visible !important;
-    }
+  .flowise-chatbot-button {
+    position: relative;
+    width: 48px !important; /* Adjust button width */
+    height: 48px !important; /* Adjust button height */
+    background-color: #3B81F6 !important; /* Ensure background color is applied */
+    padding: 0 !important;
+    border: none !important;
+    overflow: visible !important; /* Allow image to overflow button boundaries */
+  }
 
-    .flowise-chatbot-button img {
-        position: absolute;
-        top: -10px; /* Adjust as necessary */
-        left: -10px; /* Adjust as necessary */
-        width: 80px !important; /* Expand beyond button boundaries */
-        height: auto !important;
-        display: block !important;
-    }
+  .flowise-chatbot-button img {
+    position: absolute;
+    top: -10px; /* Adjust as necessary */
+    left: -10px; /* Adjust as necessary */
+    width: 80px !important; /* Expand beyond button boundaries */
+    height: auto !important;
+    display: block !important;
+  }
 </style>
-
 
 </body>
 </html>
