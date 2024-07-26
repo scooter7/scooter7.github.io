@@ -18,7 +18,8 @@
                 backgroundColor: "transparent", // Remove background color
                 right: 20,
                 bottom: 20,
-                size: "custom", // Use custom size
+                width: 250, // Set specific width in pixels
+                height: 70, // Set specific height in pixels
                 iconColor: "transparent",
                 customIconSrc: "https://scooter7.github.io/images/holyfamily/AskBlue_Button.png",
             },
@@ -52,24 +53,20 @@
     })
 </script>
 <style>
-    button.fixed.shadow-md.rounded-full:hover\:scale-110:active\:scale-95.transition-transform.duration-200.flex.justify-center.items-center.animate-fade-in {
-        width: auto !important; /* Adjust based on your icon's dimensions */
-        height: auto !important; /* Adjust based on your icon's dimensions */
+    .flowise-chatbot-button {
+        width: 250px !important; /* Match the button width */
+        height: 70px !important; /* Match the button height */
         background-color: transparent !important; /* Ensure the background is transparent */
         padding: 0 !important;
         border: none !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
     }
 
-    button.fixed.shadow-md.rounded-full:hover\:scale-110:active\:scale-95.transition-transform.duration-200.flex.justify-center.items-center.animate-fade-in img {
-        width: auto !important;
+    .flowise-chatbot-button img {
+        width: 100% !important;
         height: auto !important;
-        max-width: none !important;
-        max-height: none !important;
         display: block !important;
     }
 </style>
+
 </body>
 </html>
