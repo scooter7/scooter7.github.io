@@ -21,10 +21,6 @@
                 size: "custom", // Use custom size
                 iconColor: "transparent",
                 customIconSrc: "https://scooter7.github.io/images/holyfamily/AskBlue_Button.png",
-                customStyles: {
-                    width: "auto",
-                    height: "auto",
-                },
             },
             chatWindow: {
                 welcomeMessage: "Hello! This is custom welcome message",
@@ -62,10 +58,13 @@
         padding: 0 !important;
         border: none !important;
         background: transparent !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     .flowise-chatbot-button img {
-        width: 100%;
-        height: auto;
+        width: 100% !important;
+        height: auto !important;
     }
 </style>
 
