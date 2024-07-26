@@ -18,7 +18,7 @@
                 backgroundColor: "transparent", // Remove background color
                 right: 20,
                 bottom: 20,
-                size: "medium",
+                size: "custom", // Use custom size
                 iconColor: "transparent",
                 customIconSrc: "https://scooter7.github.io/images/holyfamily/AskBlue_Button.png",
                 customStyles: {
@@ -27,7 +27,7 @@
                 },
             },
             chatWindow: {
-                welcomeMessage: "Hi. Please provide your name and email address to begin.",
+                welcomeMessage: "Hello! This is custom welcome message",
                 backgroundColor: "#ffffff",
                 height: 700,
                 width: 400,
@@ -55,6 +55,19 @@
         }
     })
 </script>
+<style>
+    .flowise-chatbot-button {
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
+    }
+    .flowise-chatbot-button img {
+        width: 100%;
+        height: auto;
+    }
+</style>
 
 </body>
 </html>
